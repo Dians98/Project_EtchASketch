@@ -25,7 +25,7 @@ const initializeGrid = function (number) {
                 newDivColumn.className = 'gridLine' + i + "Column" + j;
                 newDivColumn.style.cssText = "height : 50px; width : 50px; border : 1px solid black";
                 newDivColumn.addEventListener('mouseover', function () {
-                    newDivColumn.style.backgroundColor = 'yellow'; // Changez la couleur de fond ou ajoutez d'autres styles
+                    newDivColumn.style.backgroundColor = getRandomRgb(); // Changez la couleur de fond ou ajoutez d'autres styles
                 });
                 newDivLine.appendChild(newDivColumn);
             }
@@ -37,10 +37,20 @@ const initializeGrid = function (number) {
 const reinitializeGrid = function () {
     const gridLines = document.querySelectorAll("#gridLine");
 
-    console.log("TEST BRANCH");
     if (gridLines) {
         gridLines.forEach(gridLine => {
             gridLine.remove();
         });
     }
+};
+
+
+
+const getRandomRgb = function () {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return "rgb(" + r + "," + g + "," + b + ")";
+
 }
