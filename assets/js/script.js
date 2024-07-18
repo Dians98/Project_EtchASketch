@@ -36,6 +36,8 @@ const initializeGrid = function (number) {
 
 const reinitializeGrid = function () {
     const gridLines = document.querySelectorAll("#gridLine");
+
+    console.log("TEST BRANCH");
     if (gridLines) {
         gridLines.forEach(gridLine => {
             gridLine.remove();
