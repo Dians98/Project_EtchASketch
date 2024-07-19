@@ -2,7 +2,9 @@ const gridBtn = document.querySelector("#gridBtn");
 let gridNumber;
 
 
-
+/**
+ * Ajout d'un eventlistener sur le bouton du modal
+ */
 gridBtn.addEventListener("click", () => {
     gridNumber = parseInt(document.querySelector("#gridNumberInput").value);
     if (validateGridValue(gridNumber)) {
@@ -13,6 +15,9 @@ gridBtn.addEventListener("click", () => {
 
 });
 
+/**
+ * Inialiser la grille
+ */
 const initializeGrid = function (number) {
     reinitializeGrid();
     if (number != 0) {
@@ -43,6 +48,9 @@ const initializeGrid = function (number) {
     }
 };
 
+/**
+ * Reinitialiser la grille s'il y avait déjà une existante
+ */
 const reinitializeGrid = function () {
     const gridLines = document.querySelectorAll("#gridLine");
 
@@ -54,7 +62,10 @@ const reinitializeGrid = function () {
 };
 
 
-
+/**
+ * 
+ * @returns Obtenir une couleur rgb aléatoirement
+ */
 const getRandomRgb = function () {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
@@ -64,6 +75,11 @@ const getRandomRgb = function () {
 
 };
 
+/**
+ * 
+ * @param {} number : le nombre de grille choisi par l'utilisateur
+ * @returns false ou true si le nombre n'est pass validé
+ */
 const validateGridValue = function (number) {
     console.log(number);
     return (number < 2 || number > 100) ? false : true;
